@@ -1,0 +1,94 @@
+<div *ngIf = "isSubmit"> 
+    <div class = "alert alert-danger">
+        <p>Please correct the following errors:</p>
+        <div *ngIf = "formGroup.controls.email.invalid">
+            <div *ngIf = "formGroup.controls.email.touched && formGroup.controls.email.errors.required">
+               Email is required!!
+             </div>
+             <div *ngIf = "formGroup.controls.email.touched && formGroup.controls.email.errors.pattern">
+              Email is invalid
+            </div>
+           </div>
+           <div *ngIf = "formGroup.controls.password.invalid" >
+              <div *ngIf = "formGroup.controls.password.touched && formGroup.controls.password.errors.required">
+                 Password is required!!
+               </div>
+               <div *ngIf = "formGroup.controls.password.touched && formGroup.controls.password.errors.minlength">
+                  Password must contain a minimum of 8 characters
+                </div>
+               <div *ngIf = "formGroup.controls.password.touched && formGroup.controls.password.errors.pattern">
+                Password must contain one letter and one special character
+              </div>
+        </div>
+    </div>
+  </div>
+
+<div class = "card">
+  <div class = "card-header">
+    Sample Form
+  </div>
+  <div class = "card-body">
+    <form  [formGroup] = "formGroup">
+      <div class = "form-group">
+       <label for = "email">Email</label>
+       <input
+       id ="email"
+       required
+       type = "text"
+       class = "form-control"
+       formControlName = "email"
+       (keyup) = "onKeyUp($event)"
+       (keydown) = "onKeyDown($event)"
+       >
+   
+       <div *ngIf = "formGroup.controls.email.touched && formGroup.controls.email.invalid">
+        <div *ngIf = "formGroup.controls.email.errors.required" class="alert alert-danger">
+           Email is required!!
+         </div>
+         <div *ngIf = "formGroup.controls.email.errors.pattern" class="alert alert-danger">
+          Email is invalid
+        </div>
+       </div>
+      </div>
+      <div class = "form-group">
+        <label for = "dropdown">Subscription</label>
+        <select
+        class = "form-control"
+        formControlName = "subscription"
+        >
+          <option selected = "selected" value="advanced">Advanced</option>
+          <option value="basic">Basic</option>
+          <option value="pro">Pro</option>
+        </select>
+      </div>
+      <div class = "form-group">
+        <label for = "password">Password</label>
+        <input type = "password"
+        id = "pwd"
+        required
+        class = "form-control"
+        formControlName = "password"
+        (keyup) = "onKeyUp($event)"
+        (keydown) = "onKeyDown($event)"
+        >
+        <div *ngIf = " formGroup.controls.password.touched && formGroup.controls.password.invalid" class="alert alert-danger">
+            <div *ngIf = "formGroup.controls.password.errors.required">
+               Password is required!!
+             </div>
+             <div *ngIf = "formGroup.controls.password.errors.minlength">
+                Password must contain a minimum of 8 characters
+              </div>
+             <div *ngIf = "formGroup.controls.password.errors.pattern">
+              Password must contain one letter and one special character
+            </div>
+           </div>
+      </div>
+      <div class = "form-group">
+          <button class = "form-control" type = "button" (click) = "submit()"class = "btn btn-info">Submit</button>
+          <button class = "form-control" type = "reset" (click) = "reset()" class = "btn btn-secondary">Clear</button>          
+      </div>
+      
+
+    </form>
+  </div>
+</div>

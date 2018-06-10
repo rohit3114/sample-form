@@ -1,0 +1,21 @@
+<div class = "card">
+   <div class = "card-header">
+     Submission successful
+     
+      <a class = "btn btn-primary" style="float: right;" routerLink ="">Back</a>
+    
+   </div>
+ 
+   <div class = "card-body">
+     <p>Below are the submitted details:</p>
+     <ul class="list-group">
+       <li class="list-group-item list-group-item-info">
+         Email: {{formGroup.controls.email.value}}
+       </li>
+       <li class="list-group-item list-group-item-info"> 
+         Subscription: {{formGroup.controls.subscription.value}}
+       </li>
+     </ul>
+   </div>
+
+</div>

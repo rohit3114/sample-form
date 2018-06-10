@@ -1,0 +1,29 @@
+<div class ="card">
+  <div class = "card-header">
+    Sample form
+  </div>
+  <div class = "card-body">
+    <form [formGroup] = "form" (submit)="onSubmit(sampleForm)">
+        <div class ="form-group">
+            <label for ="email">Email</label>
+            <input
+            type = "text"
+            class = "form-control"
+            formControlName="email"
+            [value]="emailVal"
+            
+            >
+
+        <div *ngIf="email.touched && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.errors.required">Email is required!!</div>
+          <div *ngIf="email.errors.pattern">Enter a valid email</div>
+          Invalid
+        </div>
+       
+          
+        
+      </div>
+
+      </form>
+  </div>
+</div>
