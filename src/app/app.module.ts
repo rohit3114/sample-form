@@ -4,13 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-
-
-
 import { AppComponent } from './app.component';
-import { SampleformComponent } from './sampleform/sampleform.component';
 import { FormComponent } from './form/form.component';
-import { StackoverflowComponent } from './stackoverflow/stackoverflow.component';
 import { SuccessComponent } from './success/success.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { DataService } from './data.service';
@@ -18,9 +13,7 @@ import { DataService } from './data.service';
 @NgModule({
   declarations: [
     AppComponent,
-    SampleformComponent,
     FormComponent,
-    StackoverflowComponent,
     SuccessComponent,
     NotfoundComponent
   ],
